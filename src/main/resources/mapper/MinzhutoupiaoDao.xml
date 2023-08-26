@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.MinzhutoupiaoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.MinzhutoupiaoEntity" id="minzhutoupiaoMap">
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="xingming" column="xingming"/>
+        <result property="shenqingliyou" column="shenqingliyou"/>
+        <result property="piaoshu" column="piaoshu"/>
+        <result property="fabushijian" column="fabushijian"/>
+        <result property="reversetime" column="reversetime"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.MinzhutoupiaoVO" >
+		SELECT * FROM minzhutoupiao  minzhutoupiao         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.MinzhutoupiaoVO" >
+		SELECT  minzhutoupiao.* FROM minzhutoupiao  minzhutoupiao
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.MinzhutoupiaoView" >
+
+		SELECT  minzhutoupiao.* FROM minzhutoupiao  minzhutoupiao 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.MinzhutoupiaoView" >
+		SELECT * FROM minzhutoupiao  minzhutoupiao <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
